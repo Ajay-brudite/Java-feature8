@@ -1,7 +1,6 @@
 //9.Find the Maximum Element in an Array Using Stream Functions
 
 import java.util.*;
-import java.util.stream.*;
 
 public class MaxElementInArray {
     public static void main(String[] args) {

@@ -1,8 +1,6 @@
 //1.Create a Dummy List, Map, and Set for Stream
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.*;
 
 public class DummyCollections {
     public static void main(String[] args) {
