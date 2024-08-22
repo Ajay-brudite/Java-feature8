@@ -51,9 +51,10 @@ public class EmployeeStreamOperations {
 
         // Count Male and Female Employees
         System.out.println("------How many male and female employees are there in the organization?--------\n");
+
         Map<String, Long> genderCount = getEmployees().stream()
-            .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
-            System.out.println("Gender Count: " + genderCount);
+        .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+        System.out.println("Gender Count: " + genderCount);
 
         // Print the Names of All Departments
         System.out.println("\n----------Print the name of all departments in the organization.------------");
