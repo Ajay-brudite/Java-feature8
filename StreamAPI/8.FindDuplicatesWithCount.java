@@ -17,4 +17,9 @@ public class FindDuplicatesWithCount {
 
         System.out.println(duplicates);
     }
+
+    @Override
+    public String toString() {
+        return "FindDuplicatesWithCount []";
+    }
 }
