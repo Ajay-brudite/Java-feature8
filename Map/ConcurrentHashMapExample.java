@@ -1,24 +1,38 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
 import java.util.Map.Entry;
 import java.util.concurrent.*;
-
-public class ConcurrentHashMapExample {
+class HelloWorld {
     public static void main(String[] args) {
-        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String,Integer> concurrentHashMap=new ConcurrentHashMap<>();
         
-        // Adding key-value pairs
-        concurrentHashMap.put("Monday", 1);
-        concurrentHashMap.put("Tuesday", 2);
-        concurrentHashMap.put("Wednesday", 3);
+        concurrentHashMap.put("Apple",1);
+        concurrentHashMap.put("Banana",2);
+        concurrentHashMap.put("PineApple",3);
+        concurrentHashMap.put("Jerry",2);
         
-        // Accessing value by key
-        System.out.println("Value for key 'Tuesday': " + concurrentHashMap.get("Tuesday"));
+        System.out.println(concurrentHashMap.get("PineApple"));
+        System.out.println(concurrentHashMap.containsKey("Banana"));
+        System.out.println(concurrentHashMap.containsKey("Graps"));
+         // Using putIfAbsent to add an element only if it's not already present
+         concurrentHashMap.putIfAbsent("Stoberry",5);
+        // map.putIfAbsent("Four", 4);
+
+        // Using compute to update a value atomically
+        concurrentHashMap.compute("Banana",(key,value)-> value==null?0:value+10);
+        // map.compute("Two", (key, value) -> value == null ? 0 : value + 10);
+
+        // Iterating over the map
+        concurrentHashMap.forEach((key,value) -> System.out.println(key + ": "+ value));
+        // map.forEach((key, value) -> System.out.println(key + ": " + value));
+
+        concurrentHashMap.put("Graps",2);
+        System.out.println(concurrentHashMap.containsKey("Graps"));
         
-        // Removing key-value pair
-        concurrentHashMap.remove("Monday");
+        concurrentHashMap.remove("Banana");
         
-        // Iterating over entries (thread-safe)
-        for(Entry<String, Integer> entry : concurrentHashMap.entrySet()) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        for(Entry<String,Integer> entry:concurrentHashMap.entrySet()){
+            System.out.println("Key : "+entry.getKey()+"--> value: "+entry.getValue());
         }
     }
 }
